@@ -7,21 +7,15 @@ function Counter(){
   const [count, setCount] = useState(0);
   const [tags, setTags] = useState(['tag1', 'tag2', 'tag3']);
   
-  function getCount(){
-    return(count === 0 ? "Zero" : count)
-  };
+  function renderTags(){
+    if( tags.length === 0 ) return (<p>There are no tags!</p>);
 
-  function getBadgeStyle(){
-    let baseClass = "badge m-2 badge-"
-    baseClass += count === 0 ? "warning" : "primary"
-    return (baseClass)
+    return <ul>{ tags.map(tag => <li key={ tag }>{ tag }</li>)}</ul>
   }
 
   return (
     <React.Fragment>
-      <span className={ getBadgeStyle() }>{ getCount() }</span>
-      <button className="btn btn-secondary btn-sm">Increment</button>
-      <ul>{ tags.map(tag => <li key={ tag }>{ tag }</li>)}</ul>
+      { renderTags() }
     </React.Fragment>
   );
 }
