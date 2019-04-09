@@ -5,6 +5,7 @@ import './Counter.css';
 
 function Counter(){
   const [count, setCount] = useState(0);
+  const [tags, setTags] = useState(['tag1', 'tag2', 'tag3']);
   
   function getCount(){
     return(count === 0 ? "Zero" : count)
@@ -20,6 +21,7 @@ function Counter(){
     <React.Fragment>
       <span className={ getBadgeStyle() }>{ getCount() }</span>
       <button className="btn btn-secondary btn-sm">Increment</button>
+      <ul>{ tags.map(tag => <li key={ tag }>{ tag }</li>)}</ul>
     </React.Fragment>
   );
 }
