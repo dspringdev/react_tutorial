@@ -4,7 +4,7 @@ import './Counter.css';
 
 
 function Counter(props){
-  const [count, setCount] = useState(props.value);
+  const [count, setCount] = useState(props.counter.value);
   
   function getCount(){
     return(count === 0 ? "Zero" : count)
@@ -23,7 +23,12 @@ function Counter(props){
   return (    
     <div>
       <span className={ getBadgeStyle() }>{ getCount() }</span>
-      <button className="btn btn-secondary btn-sm" onClick={ () => { Increment(count) }}>Increment</button>
+      <button className="btn btn-secondary btn-sm" 
+              onClick={ () => { Increment(count) }}>
+      Increment</button>
+      <button className="btn btn-danger btn-sm m-2" 
+              onClick={ () => props.onDelete(props.counter.id) }>
+      Delete</button>
     </div>
   );
 }
