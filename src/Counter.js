@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import './Counter.css';
 
 
-function Counter(){
-  const [count, setCount] = useState(0);
+function Counter(props){
+  const [count, setCount] = useState(props.value);
   
   function getCount(){
     return(count === 0 ? "Zero" : count)
